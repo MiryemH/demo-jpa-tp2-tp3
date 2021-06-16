@@ -15,8 +15,8 @@ public class Livre {
      * titre du livre
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name="ID", nullable = false)
+    private Long id;
     @Column(name="AUTEUR", nullable = false)
     private String auteur;
     @Column(name="TITRE", nullable = false)
@@ -26,6 +26,18 @@ public class Livre {
      * Constructeur par défaut obligatoire pour JPA
      */
     public Livre(){
+    }
+
+    /**
+     * construit un livre avec son auteur et son titre
+     * @param id du livre
+     * @param auteur du livre
+     * @param titre du livre
+     */
+    public Livre(long id, String auteur, String titre) {
+        this.id = id;
+        this.auteur = auteur;
+        this.titre = titre;
     }
 
     public long getId() {
